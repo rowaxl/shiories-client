@@ -1,19 +1,19 @@
-import * as React from 'react'
-import Link from 'next/link'
-import Layout from '../components/Layout'
-import { NextPage } from 'next'
+import * as React from 'react';
+import { TextArea, Icon } from '@blueprintjs/core';
+import Layout from '../components/Layout';
+import { NextPage } from 'next';
 
-const IndexPage: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
-      <h1>Hello Next.js 👋</h1>
-      <p>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </p>
+    <Layout title="The Shiories">
+      <h1>Home</h1>
+      <div className="bp3-input-group .modifier">
+        <Icon icon="book" />
+        <input className="bp3-input" placeholder="Book title" dir="auto" />
+      </div>
+      <TextArea />
     </Layout>
-  )
+  );
 }
 
-export default IndexPage
+export default HomePage;
