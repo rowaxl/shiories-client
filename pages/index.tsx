@@ -3,7 +3,7 @@ import { TextArea, Icon } from '@blueprintjs/core';
 import Layout from '../components/Layout';
 import { NextPage } from 'next';
 
-const HomePage: NextPage = () => {
+const IndexPage: NextPage = () => {
   return (
     <Layout title="The Shiories">
       <h1>Home</h1>
@@ -16,4 +16,4 @@ const HomePage: NextPage = () => {
   );
 }
 
-export default HomePage;
+export default IndexPage;
