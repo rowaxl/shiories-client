@@ -33,5 +33,5 @@ GridItem.defaultProps = {
 
 GridItem.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
 };

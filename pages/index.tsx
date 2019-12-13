@@ -1,8 +1,10 @@
-import * as React from 'react';
-import Layout from '../components/Layout';
-import ArticleList from '../components/ArticleList';
+import * as React from 'react'
+import { NextPage } from 'next'
+import Layout from '../components/Layout'
+import ArticleList from '../components/ArticleList'
 import GridContainer from '../components/Grid/GridContiner'
-import { NextPage } from 'next';
+import GridItem from '../components/Grid/GridItem'
+import { TextField, TextareaAutosize } from '@material-ui/core'
 
 type DummyArticle = {
   id: string,
@@ -25,11 +27,21 @@ const IndexPage: NextPage = () => {
 
       <ArticleList items={articles} />
 
-      <GridContainer>
-
+      <GridContainer {...{ direction: "column", justify:"center", alignItems:"center" }}>
+        <GridItem {...{ xs: 12, sm: 12 }}>
+          <TextField id="title" label="book title" margin="dense" />
+        </GridItem>
+        <GridItem {...{ xs: 12, sm: 12 }}>
+          <TextareaAutosize
+            id="description"
+            aria-label="details"
+            placeholder="Write your impression"
+            rows={4}
+          />
+        </GridItem>
       </GridContainer>
     </Layout>
   );
 }
 
-export default IndexPage;
+export default IndexPage
