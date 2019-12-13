@@ -8,13 +8,15 @@ type DummyArticle = {
   id: string,
   title: string,
   impression: string
+  wrotenAt: number
 }
 
 const IndexPage: NextPage = () => {
   const articles: DummyArticle[] = [{
     id: 'a-b-c-d',
     title: 'title1',
-    impression: 'impression1'
+    impression: 'impression1',
+    wrotenAt: Date.now()
   }]
 
   return (

@@ -3,7 +3,8 @@ import * as React from 'react'
 type Article = {
   id: string,
   title: string,
-  impression: string
+  impression: string,
+  wrotenAt: number
 }
 
 type Props = {
@@ -16,6 +17,7 @@ const List: React.FunctionComponent<Props> = ({ items }) => (
       <li key={item.id}>
         <h2>{item.title}</h2>
         <pre>{item.impression}</pre>
+        <p>wroten at: {new Date(item.wrotenAt.toString())}</p>
       </li>
     ))}
   </ul>
