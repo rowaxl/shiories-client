@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Layout from '../components/Layout';
 import ArticleList from '../components/ArticleList';
+import GridContainer from '../components/Grid/GridContiner'
 import { NextPage } from 'next';
 
 type DummyArticle = {
@@ -21,6 +22,10 @@ const IndexPage: NextPage = () => {
       <h1>Home</h1>
 
       <ArticleList items={articles} />
+
+      <GridContainer>
+
+      </GridContainer>
     </Layout>
   );
 }
