@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import { NextPage } from 'next'
 import Layout from '../components/Layout'
 import ArticleList from '../components/ArticleList'
@@ -14,11 +14,11 @@ type DummyArticle = {
 }
 
 const IndexPage: NextPage = () => {
-  const articles: DummyArticle[] = [{
+  const dummyArticle: DummyArticle[] = [{
     id: 'a-b-c-d',
     title: 'title1',
     impression: 'impression1',
-    wrotenAt: Date.now()
+    wrotenAt: new Date('2019-12-20T10:20:30Z').getTime()
   }]
 
   const inputedArticle: DummyArticle = {
@@ -27,6 +27,8 @@ const IndexPage: NextPage = () => {
     impression: '',
     wrotenAt: 0,
   }
+
+  const [articles, setArticles] = useState(dummyArticle)
 
   const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     inputedArticle.title = e.target.value
@@ -37,11 +39,12 @@ const IndexPage: NextPage = () => {
   }
 
   const onClickedSubmit = () => {
-    inputedArticle.wrotenAt = Date.now();
+    inputedArticle.wrotenAt = Date.now()
 
-    console.log(inputedArticle);
+    const newArticles = [...articles]
+    newArticles.push(inputedArticle)
 
-    onClickedClear()
+    setArticles(newArticles)
   }
 
   const onClickedClear = () => {
@@ -55,7 +58,7 @@ const IndexPage: NextPage = () => {
       <ArticleList items={articles} />
 
       <GridContainer {...{ direction: "column", alignItems:"center" }}>
-        <GridItem {...{ sm: 12 }}>
+        <GridItem>
           <TextField
             id="title"
             label="book title"
@@ -63,7 +66,7 @@ const IndexPage: NextPage = () => {
             onChange={onChangeTitle}
           />
         </GridItem>
-        <GridItem {...{ sm: 12 }}>
+        <GridItem>
           <TextareaAutosize
             id="impression"
             aria-label="impression"
@@ -72,11 +75,15 @@ const IndexPage: NextPage = () => {
             onChange={onChangeImpression}
           />
         </GridItem>
-        <GridItem {...{ sm: 12 }}>
+        <GridItem>
           <GridContainer {...{ direction: "row", justify:"space-evenly", alignItems:"center" }}>
-              <Button variant="contained" color="primary" onClick={onClickedSubmit}>Submit</Button>
-              <Button variant="contained" onClick={onClickedClear}>Clear</Button>
-            </GridContainer>
+            <Button variant="contained" color="primary" onClick={onClickedSubmit}>
+              Submit
+            </Button>
+            <Button variant="contained" onClick={onClickedClear}>
+              Clear
+            </Button>
+          </GridContainer>
         </GridItem>
       </GridContainer>
     </Layout>
