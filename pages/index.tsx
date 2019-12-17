@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import { NextPage } from 'next'
+import { uuid } from 'uuidv4'
+
+// Components
 import Layout from '../components/Layout'
 import ArticleList from '../components/ArticleList'
 import GridContainer from '../components/Grid/GridContiner'
 import GridItem from '../components/Grid/GridItem'
-import { TextField, TextareaAutosize, Button } from '@material-ui/core'
+
+// MUI Components
+import { TextField, TextareaAutosize, Button, FormGroup } from '@material-ui/core'
 
 type DummyArticle = {
   id: string,
@@ -21,49 +26,48 @@ const IndexPage: NextPage = () => {
     wrotenAt: new Date('2019-12-20T10:20:30Z').getTime()
   }]
 
-  const inputedArticle: DummyArticle = {
-    id: 'dummyId',
-    title: '',
-    impression: '',
-    wrotenAt: 0,
-  }
-
   const [articles, setArticles] = useState(dummyArticle)
+  const [title, setTitle] = useState('')
+  const [impression, setImpression] = useState('')
 
   const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    inputedArticle.title = e.target.value
+    setTitle(e.target.value)
   }
 
   const onChangeImpression = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    inputedArticle.impression = e.target.value
+    setImpression(e.target.value)
   }
 
   const onClickedSubmit = () => {
-    inputedArticle.wrotenAt = Date.now()
-
     const newArticles = [...articles]
-    newArticles.push(inputedArticle)
+    newArticles.push({
+      id: uuid(),
+      title,
+      impression,
+      wrotenAt: Date.now()
+    })
 
     setArticles(newArticles)
+
+    onClickClear()
   }
 
-  const onClickedClear = () => {
-    // TODO: ref children and clear value
+  const onClickClear = () => {
+    setTitle('')
+    setImpression('')
   }
 
-  return (
-    <Layout title="The Shiories">
-      <h1>Home</h1>
-
-      <ArticleList items={articles} />
-
-      <GridContainer {...{ direction: "column", alignItems:"center" }}>
+  const MaterialUIForm = () => {
+    return (
+      <FormGroup>
         <GridItem>
           <TextField
             id="title"
             label="book title"
             margin="dense"
+            autoComplete="off"
             onChange={onChangeTitle}
+            value={title}
           />
         </GridItem>
         <GridItem>
@@ -73,6 +77,7 @@ const IndexPage: NextPage = () => {
             placeholder="Write your impression"
             rows={4}
             onChange={onChangeImpression}
+            value={impression}
           />
         </GridItem>
         <GridItem>
@@ -80,11 +85,23 @@ const IndexPage: NextPage = () => {
             <Button variant="contained" color="primary" onClick={onClickedSubmit}>
               Submit
             </Button>
-            <Button variant="contained" onClick={onClickedClear}>
+            <Button variant="contained" onClick={onClickClear}>
               Clear
             </Button>
           </GridContainer>
         </GridItem>
+      </FormGroup>
+    )
+  }
+
+  return (
+    <Layout title="The Shiories">
+      <h1>Home</h1>
+
+      <ArticleList items={articles} />
+
+      <GridContainer {...{ direction: "column", alignItems: "center" }}>
+        { MaterialUIForm() }
       </GridContainer>
     </Layout>
   );
