@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { uuid } from 'uuidv4'
 
 import GridContainer from '../Grid/GridContiner'
 import GridItem from '../Grid/GridItem'
@@ -21,16 +20,17 @@ const AddArticle = () => {
   }
 
   const onClickedSubmit = () => {
-    const newArticle = {
-      id: uuid(),
-      title,
-      impression,
-      wrotenAt: Date.now()
-    }
+    // const newArticle = {
+    //   id: uuid(),
+    //   title,
+    //   impression,
+    //   wrotenAt: Date.now()
+    // }
 
+    // TODO: Emit POST Article evnet
     // TODO: POST Article to server
     // TODO: GET Article lists
-    setArticles(newArticles)
+    // setArticles(newArticles)
 
     onClickClear()
   }
