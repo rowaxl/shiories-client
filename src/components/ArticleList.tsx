@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-type Article = {
-  id: string,
-  title: string,
-  impression: string,
-  wrotenAt: number
-}
+// interfaces
+import { Article } from '../interfaces/Article'
 
 type Props = {
   items: Article[]

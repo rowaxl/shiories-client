@@ -1,5 +1,11 @@
-// import { FetchClient } from 'utils/'
+import { FetchWrapper } from '../../../utils/FetchWrapper'
 
-// export default (req: NextApiRequest, res: NextApiResponse) => {
-//   const client = new FetchClient(req.)
-// }
+/**
+ * GET /articles
+ * get all list of articles
+ */
+export default async () => {
+  const res = await FetchWrapper('http://localhost:3000/articles')
+
+  return res
+}
