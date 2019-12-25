@@ -19,6 +19,9 @@ export const postArticle = async (body: Article) => {
   const res: Article = await fetchWrapper<Article>(
     'http://localhost:3000/articles', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(body)
   })
 

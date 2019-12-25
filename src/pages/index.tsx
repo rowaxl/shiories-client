@@ -1,5 +1,4 @@
-// import React, { useState } from 'react'
-import React from 'react'
+import React, { useState } from 'react'
 import { NextPage } from 'next'
 
 // interface
@@ -12,23 +11,33 @@ import GridContainer from '../components/Grid/GridContiner'
 import AddArticle from '../components/InputForm/AddArticle'
 
 // API
-import { getArticles } from './api/articles'
+import { getArticles, postArticle } from './api/articles'
 
 type Props = {
   articles: Article[]
 }
 
 const IndexPage: NextPage<Props> = ({ articles }) => {
+  const [currentArticles, setArticles] = useState(articles);
+
+  const onSubmitArticle = async (newArticle: Article) => {
+    await postArticle(newArticle)
+
+    const renewed = await getArticles()
+
+    setArticles(renewed)
+  }
 
   return (
     <Layout title="The Shiories">
       <h1>Home</h1>
 
-      <ArticleList items={articles} />
+      <ArticleList items={currentArticles} />
 
       <GridContainer {...{ direction: "column", alignItems: "center" }}>
-        <AddArticle />
+        <AddArticle onSubmit={onSubmitArticle} />
       </GridContainer>
+
     </Layout>
   );
 }
