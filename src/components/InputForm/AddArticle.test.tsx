@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import AddArticle from '../../InputForm/AddArticle'
+import AddArticle from './AddArticle'
 
 describe('Test Form: AddArticle', () => {
   test('Form has a text field', () => {

@@ -1,4 +1,8 @@
 module.exports = {
+  preset: "ts-jest",
+
+  testEnvironment: "node",
+
   clearMocks: true,
 
   collectCoverage: true,
@@ -21,16 +25,22 @@ module.exports = {
     "tsx",
   ],
 
-  testMatch: [
-    "**/__tests__/**/*.[jt]s?(x)",
-    "**/?(*.)+(spec|test).[tj]s?(x)"
-  ],
+  testMatch: ["**/__tests__/**/*.ts?(x)", "**/?(*.)+(test).ts?(x)"],
 
   testPathIgnorePatterns: [
     "/node_modules/"
   ],
 
-  transform: { "^.+\\.jsx?$": "babel-jest" },
+  transform: {
+    "^.+\\.ts?$": "ts-jest",
+    "^.+\\.tsx?$": "ts-jest"
+  },
 
-  setupFiles: ['./jest.setup.js']
+  setupFiles: ['./jest.setup.ts'],
+
+  globals: {
+    "ts-jest": {
+      "tsConfig": "tsconfig.json"
+    }
+  }
 };

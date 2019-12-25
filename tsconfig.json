@@ -3,9 +3,9 @@
     "allowJs": true,
     "alwaysStrict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": false,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "lib": ["dom", "es2017", "es6"],
     "module": "esnext",
     "moduleResolution": "node",
@@ -14,14 +14,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
-    "baseUrl": "src",
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
+    "types": ["jest"],
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "jest.setup.ts", "jest.config.js"]
 }

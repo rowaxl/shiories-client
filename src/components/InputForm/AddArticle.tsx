@@ -8,8 +8,7 @@ import GridItem from '../Grid/GridItem'
 // MUI Components
 import { TextField, TextareaAutosize, Button, FormGroup } from '@material-ui/core'
 
-const AddArticle:
-  FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => {
+const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => {
     const [title, setTitle] = useState('')
     const [impression, setImpression] = useState('')
 
