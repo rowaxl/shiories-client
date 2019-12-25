@@ -1,6 +1,9 @@
 import React, { FunctionComponent, useState } from 'react'
 import { ulid } from 'ulid'
 
+// interface
+import { Article } from '../../interfaces/Article'
+
 // Components
 import GridContainer from '../Grid/GridContiner'
 import GridItem from '../Grid/GridItem'
@@ -21,21 +24,22 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
       setImpression(e.target.value)
     }
 
-    const onClickedSubmit = () => {
-      const newArticle = {
+    const onClickedSubmitButton = () => {
+      // new Article()
+      const newArticle: Article = {
         id: ulid(),
         title,
         impression,
         wrotenAt: Date.now()
       }
 
-      // TODO: Emit POST Article evnet
+      // Emit POST evnet
       onSubmit(newArticle)
 
-      onClickClear()
+      onClickClearButton()
     }
 
-    const onClickClear = () => {
+    const onClickClearButton = () => {
       setTitle('')
       setImpression('')
     }
@@ -44,7 +48,7 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
       <FormGroup>
         <GridItem>
           <TextField
-            id="title"
+            id="input_title_add_article"
             label="book title"
             margin="dense"
             autoComplete="off"
@@ -54,7 +58,7 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
         </GridItem>
         <GridItem>
           <TextareaAutosize
-            id="impression"
+            id="input_impression_add_article"
             aria-label="impression"
             placeholder="Write your impression"
             rows={4}
@@ -64,10 +68,10 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
         </GridItem>
         <GridItem>
           <GridContainer {...{ direction: "row", justify:"space-evenly", alignItems:"center" }}>
-            <Button variant="contained" color="primary" onClick={onClickedSubmit}>
+            <Button id="button_submit_add_article" variant="contained" color="primary" onClick={onClickedSubmitButton}>
               Submit
             </Button>
-            <Button variant="contained" onClick={onClickClear}>
+            <Button id="button_clear_add_article" variant="contained" onClick={onClickClearButton}>
               Clear
             </Button>
           </GridContainer>

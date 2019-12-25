@@ -45,6 +45,8 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
 IndexPage.getInitialProps = async () => {
   const articles: Article[] = await getArticles()
 
+  console.log(articles)
+
   return { articles }
 }
 

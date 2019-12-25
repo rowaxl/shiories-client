@@ -6,7 +6,11 @@
     "forceConsistentCasingInFileNames": false,
     "isolatedModules": true,
     "jsx": "react",
-    "lib": ["dom", "es2017", "es6"],
+    "lib": [
+      "dom",
+      "es2017",
+      "es6"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -17,11 +21,20 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "types": ["jest"],
+    "types": [
+      "jest"
+    ],
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "jest.setup.ts", "jest.config.js"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "jest.setup.ts",
+    "jest.config.js"
+  ]
 }
