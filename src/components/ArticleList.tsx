@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
 // interfaces
-import { ArticleDetails } from '../interfaces/ArticleDetails'
+import { BookmarkDetails } from '../interfaces/BookmarkDetails'
 
 type Props = {
-  items: ArticleDetails[]
+  items: BookmarkDetails[]
 }
 
 const ArticleList: React.FunctionComponent<Props> = ({ items }) => {
@@ -19,7 +19,7 @@ const ArticleList: React.FunctionComponent<Props> = ({ items }) => {
       {getCurrentItems().map(item => (
         <li key={item.id}>
           <h2>{item.title}</h2>
-          <pre>{item.impression}</pre>
+          <pre>{item.memo}</pre>
           <p>wroten at: {new Date(item.wrotenAt).toLocaleString()}</p>
         </li>
       ))}

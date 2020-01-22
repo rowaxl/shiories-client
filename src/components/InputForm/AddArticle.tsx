@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from 'react'
 import { ulid } from 'ulid'
 
 // interface
-import { ArticleDetails } from '../../interfaces/ArticleDetails'
+import { BookmarkDetails } from '../../interfaces/BookmarkDetails'
 
 // Components
 import GridContainer from '../Grid/GridContiner'
@@ -13,23 +13,28 @@ import { TextField, TextareaAutosize, Button, FormGroup } from '@material-ui/cor
 
 const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => {
     const [title, setTitle] = useState('')
-    const [impression, setImpression] = useState('')
+    const [pageNo, setPages] = useState(0)
+    const [memo, setImpression] = useState('')
 
     // FIXME: is it the only way?
     const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
       setTitle(e.target.value)
     }
 
-    const onChangeImpression = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const onChangePages = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setPages(parseInt(e.target.value))
+    }
+
+    const onChagneMemo = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setImpression(e.target.value)
     }
 
     const onClickedSubmitButton = () => {
-      // new Article()
-      const newArticle: ArticleDetails = {
+      const newArticle: BookmarkDetails = {
         id: ulid(),
+        pageNo,
         title,
-        impression,
+        memo,
         wrotenAt: Date.now()
       }
 
@@ -60,10 +65,20 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
           <TextareaAutosize
             id="input_impression_add_article"
             aria-label="impression"
-            placeholder="Write your impression"
+            placeholder="Page No"
             rows={4}
-            onChange={onChangeImpression}
-            value={impression}
+            onChange={onChangePages}
+            value={pageNo}
+          />
+        </GridItem>
+        <GridItem>
+          <TextareaAutosize
+            id="input_impression_add_article"
+            aria-label="impression"
+            placeholder="Memo"
+            rows={4}
+            onChange={onChagneMemo}
+            value={memo}
           />
         </GridItem>
         <GridItem>

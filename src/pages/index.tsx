@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NextPage } from 'next'
 
 // interface
-import { ArticleDetails } from '../interfaces/ArticleDetails'
+import { BookmarkDetails } from '../interfaces/BookmarkDetails'
 
 // Components
 import Layout from '../components/Layout'
@@ -14,13 +14,13 @@ import AddArticle from '../components/InputForm/AddArticle'
 import { getArticles, postArticle } from './api/articles'
 
 type Props = {
-  articles: ArticleDetails[]
+  articles: BookmarkDetails[]
 }
 
 const IndexPage: NextPage<Props> = ({ articles }) => {
   const [currentArticles, setArticles] = useState(articles);
 
-  const onSubmitArticle = async (newArticle: ArticleDetails) => {
+  const onSubmitArticle = async (newArticle: BookmarkDetails) => {
     await postArticle(newArticle)
 
     const renewed = await getArticles()
@@ -43,7 +43,7 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
 }
 
 IndexPage.getInitialProps = async () => {
-  const articles: ArticleDetails[] = await getArticles()
+  const articles: BookmarkDetails[] = await getArticles()
 
   console.log(articles)
 
