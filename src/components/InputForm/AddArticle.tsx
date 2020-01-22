@@ -21,7 +21,7 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
       setTitle(e.target.value)
     }
 
-    const onChangePages = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const onChangePageNo = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setPages(parseInt(e.target.value))
     }
 
@@ -62,12 +62,12 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
           />
         </GridItem>
         <GridItem>
-          <TextareaAutosize
-            id="input_impression_add_article"
-            aria-label="impression"
+          <TextField
+            id="input_page_no_add_article"
+            aria-label="pageNo"
             placeholder="Page No"
             rows={4}
-            onChange={onChangePages}
+            onChange={onChangePageNo}
             value={pageNo}
           />
         </GridItem>
