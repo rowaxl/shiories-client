@@ -14,6 +14,20 @@ import customStyles from '../../styles/customStyles'
 const Article: FunctionComponent<{ detail: BookmarkDetails }> = ({ detail }) => {
   const { id, title, pageNo, memo, wrotenAt } = detail
 
+  const renderMemo = (text: string) => {
+    if (text.length > 0) {
+      return (
+        <GridItem>
+          <pre className={customStyles().articleMemo}>
+            Memo: {text}
+          </pre>
+        </GridItem>
+      )
+    }
+
+    return ''
+  }
+
   // const onClickArticle = () => {
     // TODO: highlight article
   // }
@@ -44,16 +58,13 @@ const Article: FunctionComponent<{ detail: BookmarkDetails }> = ({ detail }) => 
           <GridItem>
             <div
               id={`page_no_${id}`}
+              className={customStyles().articlePageNo}
             >
               Page No: {pageNo}
             </div>
           </GridItem>
 
-          <GridItem>
-            <pre>
-              Memo: {memo}
-            </pre>
-          </GridItem>
+          {renderMemo(memo)}
         </GridContainer>
       </Paper>
     </GridItem>

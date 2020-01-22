@@ -21,6 +21,12 @@ export default makeStyles(
       top: '0%',
       textAlign: 'right',
       width: '100px'
+    },
+    articlePageNo: {
+      ...theme.typography.body2
+    },
+    articleMemo: {
+      ...theme.typography.body1
     }
   })
 )
