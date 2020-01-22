@@ -1,12 +1,12 @@
 import fetchWrapper from '../../../utils/fetchWrapper'
-import { Article } from '../../../interfaces/Article'
+import { ArticleDetails } from '../../../interfaces/ArticleDetails'
 
 /**
  * GET /articles
  * get all list of articles
  */
 export const getArticles = async () => {
-  const res: Article[] = await fetchWrapper('http://localhost:3000/articles')
+  const res: ArticleDetails[] = await fetchWrapper('http://localhost:3000/articles')
 
   return res
 }
@@ -15,8 +15,8 @@ export const getArticles = async () => {
  * POST /articles
  * submit new article
  */
-export const postArticle = async (body: Article) => {
-  const res: Article = await fetchWrapper<Article>(
+export const postArticle = async (body: ArticleDetails) => {
+  const res: ArticleDetails = await fetchWrapper<ArticleDetails>(
     'http://localhost:3000/articles', {
       method: 'POST',
       headers: {

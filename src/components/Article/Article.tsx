@@ -11,10 +11,7 @@ import GridItem from '../Grid/GridItem'
 // MUI Components
 import { TextField, TextareaAutosize, Button, FormGroup } from '@material-ui/core'
 
-const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => {
-    const [title, setTitle] = useState('')
-    const [impression, setImpression] = useState('')
-
+const Article: FunctionComponent<{ onClick: Function }> = ({ onClick }) => {
     // FIXME: is it the only way?
     const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
       setTitle(e.target.value)
@@ -26,7 +23,7 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
 
     const onClickedSubmitButton = () => {
       // new Article()
-      const newArticle: ArticleDetails = {
+      const newArticle: Article = {
         id: ulid(),
         title,
         impression,
@@ -80,4 +77,4 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
     )
 }
 
-export default AddArticle
+export default Article
