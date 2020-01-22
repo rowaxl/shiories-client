@@ -6,7 +6,6 @@ import Article from './Article/Article'
 // interfaces
 import { BookmarkDetails } from '../interfaces/BookmarkDetails'
 import GridContainer from './Grid/GridContiner'
-import GridItem from './Grid/GridItem'
 
 type Props = {
   items: BookmarkDetails[]
@@ -18,9 +17,7 @@ const ArticleList: FunctionComponent<Props> = ({ items }) => {
   useEffect(() => setCurrentItems(items), [items.length])
 
   const getCurrentItems = () => currentItems.map(item => (
-    <GridItem>
-      <Article key={item.id} detail={item} />
-    </GridItem>
+    <Article key={item.id} detail={item} />
   ))
 
   return (

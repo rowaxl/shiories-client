@@ -19,7 +19,7 @@ type Props = {
 }
 
 const IndexPage: NextPage<Props> = ({ articles }) => {
-  const [currentArticles, setArticles] = useState(articles);
+  const [currentArticles, setArticles] = useState(articles)
 
   const onSubmitArticle = async (newArticle: BookmarkDetails) => {
     await postArticle(newArticle)

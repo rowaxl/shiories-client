@@ -12,29 +12,32 @@ import { Paper } from '@material-ui/core'
 import { customStyles } from '../../styles'
 
 const Article: FunctionComponent<{ detail: BookmarkDetails }> = ({ detail }) => {
-  const { title, pageNo, memo, wrotenAt } = detail
+  const { id, title, pageNo, memo, wrotenAt } = detail
 
   // const onClickArticle = () => {
     // TODO: highlight article
   // }
 
   return (
-    <Paper elevation={3} >
-      <GridContainer>
-        <GridItem>
-          <div className={customStyles().buttonDiv}>{ title }</div>
-          <div>{ new Date(wrotenAt).toLocaleString() }</div>
-        </GridItem>
+    <GridItem key={id}>
+      <Paper elevation={3} >
+        <GridContainer>
+          <GridItem>
+            <div className={customStyles().buttonDiv}>{title}</div>
 
-        <GridItem>
-          <div>{ pageNo }</div>
-        </GridItem>
+            <div className={customStyles().wrotenAtDiv}>{ new Date(wrotenAt).toLocaleString() }</div>
+          </GridItem>
 
-        <GridItem>
-          <pre>{ memo }</pre>
-        </GridItem>
-      </GridContainer>
-    </Paper>
+          <GridItem>
+            <div>{ pageNo }</div>
+          </GridItem>
+
+          <GridItem>
+            <pre>{ memo }</pre>
+          </GridItem>
+        </GridContainer>
+      </Paper>
+    </GridItem>
   )
 }
 
