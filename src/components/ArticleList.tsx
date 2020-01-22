@@ -21,7 +21,13 @@ const ArticleList: FunctionComponent<Props> = ({ items }) => {
   ))
 
   return (
-    <GridContainer>
+    <GridContainer
+      {...{
+        id:"article_list",
+        spacing: 3,
+        justify: "flex-start"
+      }}
+    >
       { getCurrentItems() }
     </GridContainer>
   )
