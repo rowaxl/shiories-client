@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent } from 'react'
 
 // interface
 import { BookmarkDetails } from '../../interfaces/BookmarkDetails'
@@ -8,19 +8,34 @@ import GridContainer from '../Grid/GridContiner'
 import GridItem from '../Grid/GridItem'
 
 // MUI Components
-import { TextField, TextareaAutosize } from '@material-ui/core'
+import { Paper } from '@material-ui/core'
+import { customStyles } from '../../styles'
 
-const Article: FunctionComponent<{
-  detiail: BookmarkDetails,
-  onClick: Function
-}> =
-  ({ detiail, onClick }) => {
-    const onClickArticle = () => {
-      onClick()
-    }
+const Article: FunctionComponent<{ detail: BookmarkDetails }> = ({ detail }) => {
+  const { title, pageNo, memo, wrotenAt } = detail
 
-    return (
-    )
+  // const onClickArticle = () => {
+    // TODO: highlight article
+  // }
+
+  return (
+    <Paper elevation={3} >
+      <GridContainer>
+        <GridItem>
+          <div className={customStyles().buttonDiv}>{ title }</div>
+          <div>{ new Date(wrotenAt).toLocaleString() }</div>
+        </GridItem>
+
+        <GridItem>
+          <div>{ pageNo }</div>
+        </GridItem>
+
+        <GridItem>
+          <pre>{ memo }</pre>
+        </GridItem>
+      </GridContainer>
+    </Paper>
+  )
 }
 
 export default Article
