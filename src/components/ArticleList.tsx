@@ -1,29 +1,36 @@
-import React, { useState, useEffect } from 'react'
+import React, { FunctionComponent, useState, useEffect } from 'react'
+
+// components
+import Article from './Article/Article'
 
 // interfaces
-import { Article } from '../interfaces/Article'
+import { BookmarkDetails } from '../interfaces/BookmarkDetails'
+import GridContainer from './Grid/GridContiner'
 
 type Props = {
-  items: Article[]
+  items: BookmarkDetails[]
 }
 
-const ArticleList: React.FunctionComponent<Props> = ({ items }) => {
+const ArticleList: FunctionComponent<Props> = ({ items }) => {
   const [currentItems, setCurrentItems] = useState(items);
 
   useEffect(() => setCurrentItems(items), [items.length])
 
-  const getCurrentItems = () => currentItems
+  const getCurrentItems = () => currentItems.map(item => (
+    <Article key={item.id} detail={item} />
+  ))
 
   return (
-    <ul>
-      {getCurrentItems().map(item => (
-        <li key={item.id}>
-          <h2>{item.title}</h2>
-          <pre>{item.impression}</pre>
-          <p>wroten at: {new Date(item.wrotenAt).toLocaleString()}</p>
-        </li>
-      ))}
-    </ul>
+    <GridContainer
+      {...{
+        id:"article_list",
+        spacing: 3,
+        justify: "flex-start"
+      }}
+    >
+      { getCurrentItems() }
+    </GridContainer>
   )
 }
+
 export default ArticleList
