@@ -6,8 +6,9 @@ import { BookmarkDetails } from '../interfaces/BookmarkDetails'
 
 // Components
 import Layout from '../components/Layout'
-import ArticleList from '../components/ArticleList'
 import GridContainer from '../components/Grid/GridContiner'
+
+import ArticleList from '../components/ArticleList'
 import AddArticle from '../components/InputForm/AddArticle'
 
 // API
