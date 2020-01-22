@@ -1,6 +1,6 @@
 // import { Book } from './Book';
 
-export type Article = {
+export type ArticleDetails = {
   id: string,
   // userId: string,
   // book: Book,

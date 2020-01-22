@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
 // interfaces
-import { Article } from '../interfaces/Article'
+import { ArticleDetails } from '../interfaces/ArticleDetails'
 
 type Props = {
-  items: Article[]
+  items: ArticleDetails[]
 }
 
 const ArticleList: React.FunctionComponent<Props> = ({ items }) => {
