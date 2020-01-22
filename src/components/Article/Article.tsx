@@ -18,7 +18,10 @@ const Article: FunctionComponent<{ detail: BookmarkDetails }> = ({ detail }) => 
     if (text.length > 0) {
       return (
         <GridItem>
-          <pre className={customStyles().articleMemo}>
+          <pre
+            id={`article_memo_${id}`}
+            className={customStyles().articleMemo}
+          >
             Memo: {text}
           </pre>
         </GridItem>
@@ -41,7 +44,7 @@ const Article: FunctionComponent<{ detail: BookmarkDetails }> = ({ detail }) => 
         <GridContainer>
           <GridItem>
             <div
-              id={`book_title_${id}`}
+              id={`article_title_${id}`}
               className={customStyles().articleTitle}
             >
               {title}
@@ -57,7 +60,7 @@ const Article: FunctionComponent<{ detail: BookmarkDetails }> = ({ detail }) => 
 
           <GridItem>
             <div
-              id={`page_no_${id}`}
+              id={`article_page_no_${id}`}
               className={customStyles().articlePageNo}
             >
               Page No: {pageNo}
