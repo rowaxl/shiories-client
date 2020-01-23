@@ -14,7 +14,7 @@ import AddArticle from 'components/Article/Form/AddArticle'
 import Modal from 'components/Modal/SpringModal'
 
 // logics
-import openAddArticleModal from 'states/openAddArticleModal'
+import isOpenModal from 'states/isOpenModal'
 
 // API
 import { getArticles, postArticle } from './api/articles'
@@ -27,7 +27,11 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
 
   const [currentArticles, setArticles] = useState(articles)
 
-  const { isOpen, toggle } = openAddArticleModal()
+  const {
+    isOpen,
+    open,
+    close
+  } = isOpenModal()
 
   const onSubmitArticle = async (newArticle: BookmarkDetails) => {
     await postArticle(newArticle)
@@ -46,11 +50,14 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
       <ArticleList items={currentArticles} />
 
       <GridContainer {...{ direction: "column", alignItems: "center" }}>
-        <button type="button" onClick={toggle}>
+        <button type="button" onClick={open}>
           open
         </button>
 
-        <Modal isOpen={isOpen}>
+        <Modal
+          isOpen={isOpen}
+          closeModal={close}
+        >
           <AddArticle onSubmit={onSubmitArticle} />
         </Modal>
       </GridContainer>

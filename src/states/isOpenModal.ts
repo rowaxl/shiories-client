@@ -7,8 +7,18 @@ export default () => {
     setIsOpen(!isOpen)
   }
 
+  const open = () => {
+    setIsOpen(true)
+  }
+
+  const close = () => {
+    setIsOpen(false)
+  }
+
   return {
     isOpen,
-    toggle
+    toggle,
+    close,
+    open
   }
 }

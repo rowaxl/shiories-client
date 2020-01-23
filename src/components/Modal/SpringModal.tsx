@@ -41,10 +41,15 @@ const Fade = forwardRef<HTMLDivElement, FadeProps>(function Fade(props, ref) {
 
 type Props = {
   children?: ReactElement,
-  isOpen: boolean
+  isOpen: boolean,
+  closeModal?: Function,
 }
 
-const SpringModal: FunctionComponent<Props> = ({ children, isOpen }) => {
+const SpringModal: FunctionComponent<Props> = ({ children, isOpen, closeModal }) => {
+  const handleClose = () => {
+    if(closeModal) { closeModal() }
+  }
+
   return (
     <div>
       <Modal
@@ -52,7 +57,7 @@ const SpringModal: FunctionComponent<Props> = ({ children, isOpen }) => {
         aria-describedby="spring-modal-description"
         className={customStyles().modal}
         open={isOpen}
-        // onClose={handleClose}
+        onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
