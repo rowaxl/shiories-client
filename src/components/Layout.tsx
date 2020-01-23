@@ -1,24 +1,16 @@
-import * as React from 'react';
-import Link from 'next/link';
-import Head from 'next/head';
+import React, { FunctionComponent, ReactElement } from 'react'
+import Link from 'next/link'
 
 type Props = {
-  title?: string
+  children?: ReactElement[],
+  title: string
 }
 
-const Layout: React.FunctionComponent<Props> = ({
-  children,
-  title = 'Title',
-}) => (
+const Layout: FunctionComponent<Props> = ({ children, title }) => (
   <div>
-    <Head>
-      <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta
-        name="viewport"
-        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
-      />
-    </Head>
+    <title>
+      {title}
+    </title>
 
     <header>
       <nav>
