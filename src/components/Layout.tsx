@@ -1,13 +1,11 @@
-import * as React from 'react'
+import React, { FunctionComponent, ReactElement } from 'react'
 import Link from 'next/link'
 
 type Props = {
-  title?: string
+  children?: ReactElement[]
 }
 
-const Layout: React.FunctionComponent<Props> = ({
-  children
-}) => (
+const Layout: FunctionComponent<Props> = ({ children }) => (
   <div>
     <header>
       <nav>

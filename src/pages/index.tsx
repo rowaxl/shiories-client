@@ -44,7 +44,7 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
   }
 
   return (
-    <Layout title="The Shiories">
+    <Layout>
       <h1>Home</h1>
 
       <ArticleList items={currentArticles} />
