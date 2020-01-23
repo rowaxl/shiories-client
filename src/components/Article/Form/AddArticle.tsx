@@ -2,11 +2,11 @@ import React, { FunctionComponent, useState } from 'react'
 import { ulid } from 'ulid'
 
 // interface
-import { BookmarkDetails } from '../../interfaces/BookmarkDetails'
+import { BookmarkDetails } from 'interfaces/BookmarkDetails'
 
 // Components
-import GridContainer from '../Grid/GridContiner'
-import GridItem from '../Grid/GridItem'
+import GridContainer from 'components/Grid/GridContiner'
+import GridItem from 'components/Grid/GridItem'
 
 // MUI Components
 import { TextField, TextareaAutosize, Button, FormGroup } from '@material-ui/core'

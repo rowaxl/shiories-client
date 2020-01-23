@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import { NextPage } from 'next'
 
 // interface
-import { BookmarkDetails } from '../interfaces/BookmarkDetails'
+import { BookmarkDetails } from 'interfaces/BookmarkDetails'
 
 // Components
-import Layout from '../components/Layout'
-import GridContainer from '../components/Grid/GridContiner'
+import Layout from 'components/Layout'
+import GridContainer from 'components/Grid/GridContiner'
 
-import ArticleList from '../components/ArticleList'
-import AddArticle from '../components/InputForm/AddArticle'
+import ArticleList from 'components/Article/ArticleList'
+import AddArticle from 'components/Article/Form/AddArticle'
 
 // API
 import { getArticles, postArticle } from './api/articles'
@@ -45,8 +45,6 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
 
 IndexPage.getInitialProps = async () => {
   const articles: BookmarkDetails[] = await getArticles()
-
-  console.log(articles)
 
   return { articles }
 }

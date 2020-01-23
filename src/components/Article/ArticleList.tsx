@@ -1,11 +1,11 @@
 import React, { FunctionComponent, useState, useEffect } from 'react'
 
 // components
-import Article from './Article/Article'
+import GridContainer from 'components/Grid/GridContiner'
+import Article from 'components/Article/Article'
 
 // interfaces
-import { BookmarkDetails } from '../interfaces/BookmarkDetails'
-import GridContainer from './Grid/GridContiner'
+import { BookmarkDetails } from 'interfaces/BookmarkDetails'
 
 type Props = {
   items: BookmarkDetails[]
