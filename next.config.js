@@ -1,7 +1,9 @@
-const withCSS = require('@zeit/next-css');
+const withPlugins = require('next-compose-plugins')
+const withCSS = require('@zeit/next-css')
+const TSConfigPaths = require('tsconfig-paths-webpack-plugin')
 
-module.exports = withCSS({
-  webpack: function (config) {
+module.exports = withPlugins([withCSS], {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
       use: {
@@ -12,6 +14,13 @@ module.exports = withCSS({
         }
       }
     })
+
+    if (config.resolve.plugins) {
+      config.resolve.plugins.push(new TSConfigPaths())
+    } else {
+      config.resolve.plugins = [new TSConfigPaths()]
+    }
+
     return config
   }
-});
+})

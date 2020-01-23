@@ -1,5 +1,5 @@
-import * as React from 'react';
-import NextApp from 'next/app';
+import * as React from 'react'
+import NextApp from 'next/app'
 import '../styles'
 
 class App extends NextApp {
@@ -21,4 +21,4 @@ class App extends NextApp {
   }
 }
 
-export default App;
+export default App

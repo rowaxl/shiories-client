@@ -2,7 +2,7 @@
   AVAILABLE_LOCALES,
   DEFAULT_LOCALE,
   FALLBACK_LOCALES_PER_LANGUAGE
-} from '../constants/locales'
+} from 'constants/locales'
 
 function getLocales (query: any) {
   return sanitizeLocale(query.hl)

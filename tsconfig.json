@@ -26,7 +26,8 @@
     ],
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "baseUrl": "./src/"
   },
   "exclude": [
     "node_modules"

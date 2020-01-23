@@ -1,5 +1,5 @@
-import fetchWrapper from '../../../utils/fetchWrapper'
-import { BookmarkDetails } from '../../../interfaces/BookmarkDetails'
+import fetchWrapper from 'utils/fetchWrapper'
+import { BookmarkDetails } from 'interfaces/BookmarkDetails'
 
 /**
  * GET /articles
@@ -7,6 +7,10 @@ import { BookmarkDetails } from '../../../interfaces/BookmarkDetails'
  */
 export const getArticles = async () => {
   const res: BookmarkDetails[] = await fetchWrapper('http://localhost:3000/articles')
+
+  if (res) {
+    res.sort((a, b) => b.wrotenAt - a.wrotenAt)
+  }
 
   return res
 }
