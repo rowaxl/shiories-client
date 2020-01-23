@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import customStyles from 'styles/customStyles'
 
 // interface
 import { BookmarkDetails } from 'interfaces/BookmarkDetails'
@@ -9,7 +10,6 @@ import GridItem from 'components/Grid/GridItem'
 
 // MUI Components
 import { Paper } from '@material-ui/core'
-import customStyles from 'styles/customStyles'
 
 const Article: FunctionComponent<{ detail: BookmarkDetails }> = ({ detail }) => {
   const { id, title, pageNo, memo, wrotenAt } = detail

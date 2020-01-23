@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState } from 'react'
 import { ulid } from 'ulid'
+import customStyles from 'styles/customStyles'
 
 // interface
 import { BookmarkDetails } from 'interfaces/BookmarkDetails'
@@ -49,7 +50,8 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
       setImpression('')
     }
 
-    return (
+  return (
+    <div className={customStyles().postArticlePaper}>
       <FormGroup>
         <GridItem>
           <TextField
@@ -92,7 +94,8 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
           </GridContainer>
         </GridItem>
       </FormGroup>
-    )
+    </div>
+  )
 }
 
 export default AddArticle

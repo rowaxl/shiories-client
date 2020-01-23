@@ -11,6 +11,8 @@ import GridContainer from 'components/Grid/GridContiner'
 import ArticleList from 'components/Article/ArticleList'
 import AddArticle from 'components/Article/Form/AddArticle'
 
+import Modal from 'components/Modal/SpringModal'
+
 // API
 import { getArticles, postArticle } from './api/articles'
 
@@ -36,7 +38,9 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
       <ArticleList items={currentArticles} />
 
       <GridContainer {...{ direction: "column", alignItems: "center" }}>
-        <AddArticle onSubmit={onSubmitArticle} />
+        <Modal>
+          <AddArticle onSubmit={onSubmitArticle} />
+        </Modal>
       </GridContainer>
 
     </Layout>
