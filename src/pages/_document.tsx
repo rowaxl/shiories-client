@@ -15,7 +15,6 @@ class CustomDocument extends NextDocument<Props> {
           <meta name='viewport' content='width=device-width,height=device-height' key='viewport' />
           <link rel='shortcut icon' href='/static/shortcut-icon.png' key='shortcutIcon' />
           <meta name='theme-color' content='#087da1' key='themeColor' />
-          <title>The Shiories v0.1</title>
         </Head>
 
         <body>

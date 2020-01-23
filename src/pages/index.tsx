@@ -4,20 +4,26 @@ import { NextPage } from 'next'
 // interface
 import { BookmarkDetails } from 'interfaces/BookmarkDetails'
 
-// Components
+// components
 import Layout from 'components/Layout'
-import GridContainer from 'components/Grid/GridContiner'
 
 import ArticleList from 'components/Article/ArticleList'
 import AddArticle from 'components/Article/Form/AddArticle'
 
 import Modal from 'components/Modal/SpringModal'
 
-// logics
+// MUI components
+import Fab from '@material-ui/core/Fab'
+import BookmarkIcon from '@material-ui/icons/Bookmark'
+
+// states
 import isOpenModal from 'states/isOpenModal'
 
 // API
 import { getArticles, postArticle } from './api/articles'
+
+// styles
+import customStyle from 'styles/customStyles'
 
 type Props = {
   articles: BookmarkDetails[]
@@ -36,7 +42,7 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
   const onSubmitArticle = async (newArticle: BookmarkDetails) => {
     await postArticle(newArticle)
 
-    // TODO: close modal
+    close()
 
     const renewed = await getArticles()
 
@@ -44,23 +50,29 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
   }
 
   return (
-    <Layout>
-      <h1>Home</h1>
+    <Layout title="The Shiories (Home)">
+      <h1>Your Bookmarks</h1>
 
       <ArticleList items={currentArticles} />
 
-      <GridContainer {...{ direction: "column", alignItems: "center" }}>
-        <button type="button" onClick={open}>
-          open
-        </button>
-
-        <Modal
-          isOpen={isOpen}
-          closeModal={close}
+      <div className={customStyle().floatingActionButton}>
+        <Fab
+          color="primary"
+          aria-label="add-bookmark"
+          onClick={open}
+          variant="extended"
         >
-          <AddArticle onSubmit={onSubmitArticle} />
-        </Modal>
-      </GridContainer>
+          <BookmarkIcon />
+          New Bookmark
+        </Fab>
+      </div>
+
+      <Modal
+        isOpen={isOpen}
+        closeModal={close}
+      >
+        <AddArticle onSubmit={onSubmitArticle} />
+      </Modal>
 
     </Layout>
   );

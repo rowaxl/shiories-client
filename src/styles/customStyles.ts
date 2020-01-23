@@ -39,5 +39,13 @@ export default makeStyles(
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
     },
+    floatingActionButton: {
+      position: 'absolute',
+      right: '1%',
+      top: '5%',
+      '& > *': {
+        marginRight: theme.spacing(1),
+      },
+    }
   })
 )

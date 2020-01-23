@@ -4,11 +4,11 @@ import customStyles from 'styles/customStyles'
 // interface
 import { BookmarkDetails } from 'interfaces/BookmarkDetails'
 
-// Components
+// components
 import GridContainer from 'components/Grid/GridContiner'
 import GridItem from 'components/Grid/GridItem'
 
-// MUI Components
+// MUI components
 import { Paper } from '@material-ui/core'
 
 const Article: FunctionComponent<{ detail: BookmarkDetails }> = ({ detail }) => {

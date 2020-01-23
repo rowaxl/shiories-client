@@ -5,11 +5,11 @@ import customStyles from 'styles/customStyles'
 // interface
 import { BookmarkDetails } from 'interfaces/BookmarkDetails'
 
-// Components
+// components
 import GridContainer from 'components/Grid/GridContiner'
 import GridItem from 'components/Grid/GridItem'
 
-// MUI Components
+// MUI components
 import { TextField, TextareaAutosize, Button, FormGroup } from '@material-ui/core'
 
 type Props = {
