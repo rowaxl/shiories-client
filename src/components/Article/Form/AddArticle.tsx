@@ -17,43 +17,30 @@ type Props = {
 }
 
 const AddArticle: FunctionComponent<Props> = ({ onSubmit }) => {
-    const [title, setTitle] = useState('')
-    const [pageNo, setPageNo] = useState(0)
-    const [memo, setMemo] = useState('')
+  const [title, setTitle] = useState('')
+  const [pageNo, setPageNo] = useState(0)
+  const [memo, setMemo] = useState('')
 
-    // FIXME: is it the only way?
-    // const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //   setTitle(e.target.value)
-    // }
-
-    const onChangePageNo = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setPageNo(parseInt(e.target.value))
+  const onClickedSubmitButton = () => {
+    const newArticle: BookmarkDetails = {
+      id: ulid(),
+      pageNo,
+      title,
+      memo,
+      wrotenAt: Date.now()
     }
 
-    const onChagneMemo = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setMemo(e.target.value)
-    }
+    // Emit POST evnet
+    onSubmit(newArticle)
 
-    const onClickedSubmitButton = () => {
-      const newArticle: BookmarkDetails = {
-        id: ulid(),
-        pageNo,
-        title,
-        memo,
-        wrotenAt: Date.now()
-      }
+    onClickClearButton()
+  }
 
-      // Emit POST evnet
-      onSubmit(newArticle)
-
-      onClickClearButton()
-    }
-
-    const onClickClearButton = () => {
-      setTitle('')
-      setMemo('')
-      setPageNo(0)
-    }
+  const onClickClearButton = () => {
+    setTitle('')
+    setMemo('')
+    setPageNo(0)
+  }
 
   return (
     <div className={customStyles().postArticlePaper}>
@@ -74,17 +61,17 @@ const AddArticle: FunctionComponent<Props> = ({ onSubmit }) => {
             aria-label="pageNo"
             placeholder="Page No"
             rows={4}
-            onChange={onChangePageNo}
+            onChange={e => setPageNo(parseInt(e.target.value))}
             value={pageNo}
           />
         </GridItem>
         <GridItem>
           <TextareaAutosize
-            id="input_impression_add_article"
-            aria-label="impression"
+            id="input_memo_add_article"
+            aria-label="memo"
             placeholder="Memo"
             rows={4}
-            onChange={onChagneMemo}
+            onChange={e => setMemo(e.target.value)}
             value={memo}
           />
         </GridItem>
