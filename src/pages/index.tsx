@@ -26,6 +26,8 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
   const onSubmitArticle = async (newArticle: BookmarkDetails) => {
     await postArticle(newArticle)
 
+    // TODO: close modal
+
     const renewed = await getArticles()
 
     setArticles(renewed)

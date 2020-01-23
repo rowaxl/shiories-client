@@ -14,20 +14,20 @@ import { TextField, TextareaAutosize, Button, FormGroup } from '@material-ui/cor
 
 const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => {
     const [title, setTitle] = useState('')
-    const [pageNo, setPages] = useState(0)
-    const [memo, setImpression] = useState('')
+    const [pageNo, setPageNo] = useState(0)
+    const [memo, setMemo] = useState('')
 
     // FIXME: is it the only way?
-    const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setTitle(e.target.value)
-    }
+    // const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //   setTitle(e.target.value)
+    // }
 
     const onChangePageNo = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setPages(parseInt(e.target.value))
+      setPageNo(parseInt(e.target.value))
     }
 
     const onChagneMemo = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setImpression(e.target.value)
+      setMemo(e.target.value)
     }
 
     const onClickedSubmitButton = () => {
@@ -47,7 +47,8 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
 
     const onClickClearButton = () => {
       setTitle('')
-      setImpression('')
+      setMemo('')
+      setPageNo(0)
     }
 
   return (
@@ -59,7 +60,7 @@ const AddArticle: FunctionComponent<{ onSubmit: Function }> = ({ onSubmit }) => 
             label="book title"
             margin="dense"
             autoComplete="off"
-            onChange={onChangeTitle}
+            onChange={e => setTitle(e.target.value)}
             value={title}
           />
         </GridItem>
