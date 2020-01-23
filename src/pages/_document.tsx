@@ -1,7 +1,7 @@
 import * as React from 'react';
 import NextDocument, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheets } from '@material-ui/core/styles'
-import getLocales from '../utils/getLocales'
+import getLocales from 'utils/getLocales'
 
 interface Props {
   locale: 'en-US' | 'ja-JP'

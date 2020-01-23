@@ -14,7 +14,8 @@ module.exports = {
   ],
 
   moduleDirectories: [
-    "node_modules"
+    "node_modules",
+    "src"
   ],
 
   moduleFileExtensions: [
