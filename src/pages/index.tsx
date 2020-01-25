@@ -1,4 +1,8 @@
-import React, { useState } from 'react'
+import React, {
+  useState,
+  lazy,
+  Suspense
+} from 'react'
 import { NextPage } from 'next'
 
 // interface
@@ -6,13 +10,13 @@ import { BookmarkDetails } from 'interfaces'
 
 // components
 import Layout from 'components/Templates/Layout'
-import BookmarkList from 'components/Organisms/Bookmark/BookmarkList'
 import AddBookmark from 'components/Organisms/Bookmark/AddBookmark'
 import Modal from 'components/Molecules/Modal/SpringModal'
 
 // MUI components
 import Fab from '@material-ui/core/Fab'
 import BookmarkIcon from '@material-ui/icons/Bookmark'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 // opned state for modal
 import isOpen from 'utils/isOpen'
@@ -29,6 +33,8 @@ import customStyle from 'styles/customStyles'
 type Props = {
   bookmarks: BookmarkDetails[]
 }
+
+const BookmarkList = lazy(() => import('components/Organisms/Bookmark/BookmarkList'))
 
 const IndexPage: NextPage<Props> = ({ bookmarks }) => {
 
@@ -56,7 +62,9 @@ const IndexPage: NextPage<Props> = ({ bookmarks }) => {
     >
       <h1>Bookmarks</h1>
 
-      <BookmarkList bookmarks={currentArticles} />
+      <Suspense fallback={ <CircularProgress /> }>
+        <BookmarkList bookmarks={currentArticles} />
+      </Suspense>
 
       <div className={customStyle().floatingActionButton}>
         <Fab
