@@ -38,6 +38,12 @@ export default makeStyles(
       border: '2px solid #000',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
+      minWidth: '300px',
+      minHeight: '400px',
+      width: '50vw',
+      height: '40vh',
+      borderRadius: '5px',
+      position: 'relative'
     },
     floatingActionButton: {
       position: 'absolute',
@@ -49,6 +55,22 @@ export default makeStyles(
     },
     articleList: {
       padding: '2vw'
+    },
+    modalButtons: {
+      position: 'absolute',
+      bottom: '0%',
+      left: '0%'
+    },
+    inputArticleTitle: {
+      minWidth: '200px',
+      width: '25vw'
+    },
+    inputArticlePageNo: {
+      width: '90px'
+    },
+    inputArticleMemo: {
+      minWidth: '200px',
+      width: '25vw'
     }
   })
 )
