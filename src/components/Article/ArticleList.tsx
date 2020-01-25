@@ -3,10 +3,10 @@ import React, { FunctionComponent, useState, useEffect } from 'react'
 // components
 import GridContainer from 'components/Grid/GridContiner'
 import Article from 'components/Article/Article'
+import customStyles from 'styles/customStyles'
 
 // interfaces
-import { BookmarkDetails } from 'interfaces/BookmarkDetails'
-import customStyles from 'styles/customStyles'
+import BookmarkDetails from 'interfaces/BookmarkDetails'
 
 type Props = {
   items: BookmarkDetails[]

@@ -6,17 +6,19 @@ import { ulid } from 'ulid'
 import customStyles from 'styles/customStyles'
 
 // interface
-import { BookmarkDetails } from 'interfaces/BookmarkDetails'
+import BookmarkDetails from 'interfaces/BookmarkDetails'
 
 // components
 import GridContainer from 'components/Grid/GridContiner'
 import GridItem from 'components/Grid/GridItem'
 
 // MUI components
-import FormGroup from '@material-ui/core/FormGroup'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import Box from '@material-ui/core/Box'
+import {
+  FormGroup,
+  TextField,
+  Button,
+  Box
+} from '@material-ui/core'
 
 type Props = {
   onSubmit: Function

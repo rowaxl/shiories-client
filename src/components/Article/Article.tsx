@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import customStyles from 'styles/customStyles'
 
 // interface
-import { BookmarkDetails } from 'interfaces/BookmarkDetails'
+import BookmarkDetails from 'interfaces/BookmarkDetails'
 
 // components
 import GridContainer from 'components/Grid/GridContiner'

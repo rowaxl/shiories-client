@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 
 
 import AddArticle from './AddArticle'
-import { BookmarkDetails } from 'interfaces/BookmarkDetails'
+import BookmarkDetails from 'interfaces/BookmarkDetails'
   
 const initalBookmarkDetail = {
   id: '',

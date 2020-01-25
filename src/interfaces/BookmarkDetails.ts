@@ -1,11 +1,10 @@
-// import { Book } from './Book';
+import BookDetails from './BookDetails';
 
-export type BookmarkDetails = {
-  id: string,
-  // userId: string,
-  // book: Book,
-  title: string,
-  pageNo: number,
-  memo: string,
-  wrotenAt: number,
+export default interface BookmarkDetails {
+  id: string
+  book?: BookDetails
+  title: string
+  pageNo: number
+  memo: string
+  wrotenAt: number
 }

@@ -15,7 +15,10 @@ const Layout: FunctionComponent<Props> = ({ children, title }) => (
     <header>
       <nav>
         <Link href="/">
-          <a>Home</a>
+          <a>Bookmarks</a>
+        </Link>{' | '}
+        <Link href="/books">
+          <a>Books</a>
         </Link>{' '}
       </nav>
     </header>

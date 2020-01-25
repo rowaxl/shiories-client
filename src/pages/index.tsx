@@ -2,14 +2,12 @@ import React, { useState } from 'react'
 import { NextPage } from 'next'
 
 // interface
-import { BookmarkDetails } from 'interfaces/BookmarkDetails'
+import BookmarkDetails from 'interfaces/BookmarkDetails'
 
 // components
 import Layout from 'components/Layout'
-
 import ArticleList from 'components/Article/ArticleList'
 import AddArticle from 'components/Article/Form/AddArticle'
-
 import Modal from 'components/Modal/SpringModal'
 
 // MUI components
@@ -20,7 +18,10 @@ import BookmarkIcon from '@material-ui/icons/Bookmark'
 import isOpen from 'utils/isOpen'
 
 // API
-import { getArticles, postArticle } from './api/articles'
+import {
+  getBookmarks,
+  postBookmark
+} from 'pages/api/bookmarks'
 
 // styles
 import customStyle from 'styles/customStyles'
@@ -39,18 +40,20 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
     close
   } = isOpen()
 
-  const onSubmitArticle = async (newArticle: BookmarkDetails) => {
-    await postArticle(newArticle)
+  const onSubmitBookmark = async (newBookmark: BookmarkDetails) => {
+    await postBookmark(newBookmark)
 
     close()
 
-    const renewed = await getArticles()
+    const renewed = await getBookmarks()
 
     setArticles(renewed)
   }
 
   return (
-    <Layout title="The Shiories (Home)">
+    <Layout
+      title="The Shiories (bookmarks)"
+    >
       <h1>Bookmarks</h1>
 
       <ArticleList items={currentArticles} />
@@ -71,7 +74,7 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
         isOpen={isOpened}
         closeModal={close}
       >
-        <AddArticle onSubmit={onSubmitArticle} />
+        <AddArticle onSubmit={onSubmitBookmark} />
       </Modal>
 
     </Layout>
@@ -79,7 +82,7 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
 }
 
 IndexPage.getInitialProps = async () => {
-  const articles: BookmarkDetails[] = await getArticles()
+  const articles: BookmarkDetails[] = await getBookmarks()
 
   return { articles }
 }
