@@ -3315,6 +3315,11 @@ dot-prop@^5.0.0:
   dependencies:
     is-obj "^2.0.0"
 
+dotenv@^8.0.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+
 duplexer@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -5908,6 +5913,13 @@ next-compose-plugins@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.2.0.tgz#95cd8eb40ab0652070d76572fb648354191628b0"
   integrity sha512-ChUlpT9tWfJ7YxqGw/WQ2T1gf8EeX93n1XqeQw0lkvGa7seszahvF4eOZUJoq7Hetsbzg4UHVnPoCXfXTyQR3g==
+
+next-runtime-dotenv@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/next-runtime-dotenv/-/next-runtime-dotenv-1.2.0.tgz#8392d99a639f49d2ee48e086f000321632280653"
+  integrity sha512-5Tnoey7U0JZb6M5StHtcFjT0ZBWXRbwnWZgbXqI+XKmMMUVH3lD1ogPSMoXMZcH2Q5stZUsyyfQfzDOIoHPBHw==
+  dependencies:
+    dotenv "^8.0.0"
 
 next@^9.1.5:
   version "9.2.0"

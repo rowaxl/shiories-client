@@ -1,8 +1,16 @@
 const withPlugins = require('next-compose-plugins')
 const withCSS = require('@zeit/next-css')
 const TSConfigPaths = require('tsconfig-paths-webpack-plugin')
+const nextRuntimeDotenv = require('next-runtime-dotenv')
 
-module.exports = withPlugins([withCSS], {
+const withDotEnvConfig = nextRuntimeDotenv({
+  path: '.env',
+  public: [
+    'API_BASE_URL'
+  ]
+})
+
+module.exports = withDotEnvConfig(withPlugins([withCSS], {
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
@@ -24,3 +32,4 @@ module.exports = withPlugins([withCSS], {
     return config
   }
 })
+)
