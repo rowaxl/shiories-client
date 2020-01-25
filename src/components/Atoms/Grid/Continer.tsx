@@ -12,8 +12,8 @@ const styles = {
 
 const useStyles = makeStyles(styles)
 
-export default function GridContainer(
-  props: InferProps<typeof GridContainer.propTypes>
+export default function Container(
+  props: InferProps<typeof Container.propTypes>
 ) {
   const classes = useStyles();
   const { children, className, ...rest } = props;
@@ -25,11 +25,11 @@ export default function GridContainer(
   )
 }
 
-GridContainer.defaultProps = {
+Container.defaultProps = {
   className: ''
 };
 
-GridContainer.propTypes = {
+Container.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string
 };

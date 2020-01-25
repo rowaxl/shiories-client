@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Article from './Article'
+import Bookmark from './Bookmark'
 
 const testArticleDetailWithMemo = {
   id: 'testID',
@@ -19,8 +19,8 @@ const testArticleDetailWithoutMemo = {
   wrotenAt: 100
 }
 
-describe('Test: Article with title', () => {
-  const article = shallow(<Article detail={testArticleDetailWithMemo} />)
+describe('Test: Article with memo', () => {
+  const article = shallow(<Bookmark detail={testArticleDetailWithMemo} />)
 
   test('Article has title,', () => {
     expect(article.find(`#article_title_${testArticleDetailWithMemo.id}`).length).toEqual(1)
@@ -43,8 +43,8 @@ describe('Test: Article with title', () => {
   })
 })
 
-describe('Test: Article without title', () => {
-  const article = shallow(<Article detail={testArticleDetailWithoutMemo} />)
+describe('Test: Article without memo', () => {
+  const article = shallow(<Bookmark detail={testArticleDetailWithoutMemo} />)
 
   test('Article has title,', () => {
     expect(article.find(`#article_title_${testArticleDetailWithoutMemo.id}`).length).toEqual(1)

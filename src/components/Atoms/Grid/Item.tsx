@@ -15,8 +15,8 @@ const useStyles = makeStyles({
   }
 })
 
-export default function GridItem(
-  props: InferProps<typeof GridItem.propTypes>
+export default function Item(
+  props: InferProps<typeof Item.propTypes>
 ) {
   const classes = useStyles();
   const { children, className, ...rest } = props;
@@ -27,11 +27,11 @@ export default function GridItem(
   );
 }
 
-GridItem.defaultProps = {
+Item.defaultProps = {
   className: ""
 };
 
-GridItem.propTypes = {
+Item.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
