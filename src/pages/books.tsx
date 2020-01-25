@@ -7,7 +7,7 @@ import { NextPage } from 'next'
 import BookDetails from 'interfaces/BookDetails'
 
 // components
-import Layout from 'components/Layout'
+import Layout from 'components/Templates/Layout'
 
 // MUI components
 import {

@@ -5,10 +5,10 @@ import { NextPage } from 'next'
 import BookmarkDetails from 'interfaces/BookmarkDetails'
 
 // components
-import Layout from 'components/Layout'
-import ArticleList from 'components/Article/ArticleList'
-import AddArticle from 'components/Article/Form/AddArticle'
-import Modal from 'components/Modal/SpringModal'
+import Layout from 'components/Templates/Layout'
+import BookmarkList from 'components/Organisms/Bookmark/BookmarkList'
+import AddBookmark from 'components/Organisms/Bookmark/AddBookmark'
+import Modal from 'components/Molecules/Modal/SpringModal'
 
 // MUI components
 import Fab from '@material-ui/core/Fab'
@@ -27,12 +27,12 @@ import {
 import customStyle from 'styles/customStyles'
 
 type Props = {
-  articles: BookmarkDetails[]
+  bookmarks: BookmarkDetails[]
 }
 
-const IndexPage: NextPage<Props> = ({ articles }) => {
+const IndexPage: NextPage<Props> = ({ bookmarks }) => {
 
-  const [currentArticles, setArticles] = useState(articles)
+  const [currentArticles, setArticles] = useState(bookmarks)
 
   const {
     isOpened,
@@ -56,7 +56,7 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
     >
       <h1>Bookmarks</h1>
 
-      <ArticleList items={currentArticles} />
+      <BookmarkList bookmarks={currentArticles} />
 
       <div className={customStyle().floatingActionButton}>
         <Fab
@@ -74,7 +74,7 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
         isOpen={isOpened}
         closeModal={close}
       >
-        <AddArticle onSubmit={onSubmitBookmark} />
+        <AddBookmark onSubmit={onSubmitBookmark} />
       </Modal>
 
     </Layout>
@@ -82,9 +82,9 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
 }
 
 IndexPage.getInitialProps = async () => {
-  const articles: BookmarkDetails[] = await getBookmarks()
+  const bookmarks: BookmarkDetails[] = await getBookmarks()
 
-  return { articles }
+  return { bookmarks }
 }
 
 export default IndexPage

@@ -9,22 +9,21 @@ import customStyles from 'styles/customStyles'
 import BookmarkDetails from 'interfaces/BookmarkDetails'
 
 // components
-import GridContainer from 'components/Grid/GridContiner'
-import GridItem from 'components/Grid/GridItem'
+import AddArticle from 'components/Molecules/Article/Form/AddArticle'
+import GridContainer from 'components/Atoms/Grid/Continer'
+import GridItem from 'components/Atoms/Grid/Item'
 
 // MUI components
 import {
-  FormGroup,
   TextField,
-  Button,
-  Box
+  FormGroup
 } from '@material-ui/core'
 
 type Props = {
   onSubmit: Function
 }
 
-const AddArticle: FunctionComponent<Props> = ({ onSubmit }) => {
+const AddBookmark: FunctionComponent<Props> = ({ onSubmit }) => {
   const [title, setTitle] = useState('')
   const [pageNo, setPageNo] = useState(0)
   const [memo, setMemo] = useState('')
@@ -51,26 +50,20 @@ const AddArticle: FunctionComponent<Props> = ({ onSubmit }) => {
   }
 
   return (
-    <div className={customStyles().postArticlePaper}>
-      <FormGroup>
+    <AddArticle
+      title="Add Bookmark"
+      onSubmit={onClickedSubmitButton}
+      onClear={onClickClearButton}
+    >
 
-        <GridContainer {...{ spacing: 3 }}>
-          <GridItem {...{ xs: 12 }}>
-            <Box
-              fontSize="h6.fontSize"
-              marginTop={1}
-              fontFamily="fontFamily"
-            >
-              Add New Bookmark
-            </Box>
-          </GridItem>
-          {/* TODO: Select book */}
+      <GridContainer>
 
-          <GridItem {...{ xs: 6 }}>
-            book info
-          </GridItem>
+        <GridItem {...{ xs: 6 }}>
+          book info
+        </GridItem>
 
-          <GridItem {...{ xs: 6 }}>
+        <GridItem {...{ xs: 6 }}>
+          <FormGroup>
             <GridContainer {...{ spacing: 3 }}>
               <GridItem>
                 <TextField
@@ -112,34 +105,12 @@ const AddArticle: FunctionComponent<Props> = ({ onSubmit }) => {
                 />
               </GridItem>
             </GridContainer>
-          </GridItem>
+          </FormGroup>
+        </GridItem>
 
-          <GridItem className={customStyles().modalButtons}>
-            <GridContainer {...{ direction: "row", justify:"space-evenly", alignItems:"center" }}>
-              <Button
-                id="button_submit_add_article"
-                variant="contained"
-                color="primary"
-                onClick={onClickedSubmitButton}
-              >
-                Submit
-              </Button>
-
-              <Button
-                id="button_clear_add_article"
-                variant="contained"
-                color="default"
-                onClick={onClickClearButton}
-              >
-                Clear
-              </Button>
-            </GridContainer>
-          </GridItem>
-
-        </GridContainer>
-      </FormGroup>
-    </div>
+      </GridContainer>
+    </AddArticle>
   )
 }
 
-export default AddArticle
+export default AddBookmark
