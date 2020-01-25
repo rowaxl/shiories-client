@@ -9,7 +9,7 @@ import ArticleList from 'components/Molecules/Article/ArticleList'
 import Bookmark from 'components/Organisms/Bookmark/Bookmark'
 
 // interfaces
-import BookmarkDetails from 'interfaces/BookmarkDetails'
+import { BookmarkDetails } from 'interfaces'
 
 type Props = {
   bookmarks: BookmarkDetails[]

@@ -1,5 +1,5 @@
 import fetchWrapper from 'utils/fetchWrapper'
-import BookmarkDetails from 'interfaces/BookmarkDetails'
+import { BookmarkDetails } from 'interfaces'
 import getConfig from 'next/config'
 
 const {

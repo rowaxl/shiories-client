@@ -6,7 +6,7 @@ import { ulid } from 'ulid'
 import customStyles from 'styles/customStyles'
 
 // interface
-import BookmarkDetails from 'interfaces/BookmarkDetails'
+import { BookmarkDetails } from 'interfaces'
 
 // components
 import AddArticle from 'components/Molecules/Article/Form/AddArticle'

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NextPage } from 'next'
 
 // interface
-import BookmarkDetails from 'interfaces/BookmarkDetails'
+import { BookmarkDetails } from 'interfaces'
 
 // components
 import Layout from 'components/Templates/Layout'

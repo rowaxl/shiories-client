@@ -1,5 +1,5 @@
 import fetchWrapper from 'utils/fetchWrapper'
-import BookDetails from 'interfaces/BookDetails'
+import { BookDetails } from 'interfaces'
 import getConfig from 'next/config'
 
 const {

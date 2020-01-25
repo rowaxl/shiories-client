@@ -4,7 +4,7 @@ import React, {
 import { NextPage } from 'next'
 
 // interfaces
-import BookDetails from 'interfaces/BookDetails'
+import { BookDetails } from 'interfaces'
 
 // components
 import Layout from 'components/Templates/Layout'
