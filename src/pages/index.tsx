@@ -16,8 +16,8 @@ import Modal from 'components/Modal/SpringModal'
 import Fab from '@material-ui/core/Fab'
 import BookmarkIcon from '@material-ui/icons/Bookmark'
 
-// states
-import isOpenModal from 'states/isOpenModal'
+// opned state for modal
+import isOpen from 'utils/isOpen'
 
 // API
 import { getArticles, postArticle } from './api/articles'
@@ -34,10 +34,10 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
   const [currentArticles, setArticles] = useState(articles)
 
   const {
-    isOpen,
+    isOpened,
     open,
     close
-  } = isOpenModal()
+  } = isOpen()
 
   const onSubmitArticle = async (newArticle: BookmarkDetails) => {
     await postArticle(newArticle)
@@ -51,7 +51,7 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
 
   return (
     <Layout title="The Shiories (Home)">
-      <h1>Your Bookmarks</h1>
+      <h1>Bookmarks</h1>
 
       <ArticleList items={currentArticles} />
 
@@ -68,7 +68,7 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
       </div>
 
       <Modal
-        isOpen={isOpen}
+        isOpen={isOpened}
         closeModal={close}
       >
         <AddArticle onSubmit={onSubmitArticle} />

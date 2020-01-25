@@ -1,22 +1,22 @@
 import { useState } from 'react'
 
 export default () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpened, setIsOpened] = useState(false)
 
   const toggle = () => {
-    setIsOpen(!isOpen)
+    setIsOpened(!isOpened)
   }
 
   const open = () => {
-    setIsOpen(true)
+    setIsOpened(true)
   }
 
   const close = () => {
-    setIsOpen(false)
+    setIsOpened(false)
   }
 
   return {
-    isOpen,
+    isOpened,
     toggle,
     close,
     open
