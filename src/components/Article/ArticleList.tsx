@@ -6,6 +6,7 @@ import Article from 'components/Article/Article'
 
 // interfaces
 import { BookmarkDetails } from 'interfaces/BookmarkDetails'
+import customStyles from 'styles/customStyles'
 
 type Props = {
   items: BookmarkDetails[]
@@ -23,10 +24,11 @@ const ArticleList: FunctionComponent<Props> = ({ items }) => {
   return (
     <GridContainer
       {...{
-        id:"article_list",
+        id: "article_list",
         spacing: 3,
-        justify: "flex-start"
+        justify: "flex-start",
       }}
+      className={customStyles().articleList}
     >
       { getCurrentItems() }
     </GridContainer>

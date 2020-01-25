@@ -46,6 +46,9 @@ export default makeStyles(
       '& > *': {
         marginRight: theme.spacing(1),
       },
+    },
+    articleList: {
+      padding: '2vw'
     }
   })
 )
