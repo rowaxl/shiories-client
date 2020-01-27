@@ -8,12 +8,10 @@ import { BookDetails } from 'interfaces'
 
 // components
 import Layout from 'components/Templates/Layout'
+import BookList from 'components/Organisms/Books/BookList'
 
 // MUI components
-import {
-  Box
-} from '@material-ui/core'
-
+import Typography from '@material-ui/core/Typography'
 
 // API
 import {
@@ -22,32 +20,32 @@ import {
 } from './api/books'
 
 type Props = {
-  books: BookDetails[]
+  bookList: BookDetails[]
 }
 
 const BooksPage: NextPage<Props> = ({
-  books
+  bookList
 }) => {
-  console.log(books)
-
   return (
     <Layout
       title="The Shiories (books)"
     >
-      <h1>Books</h1>
+      <Typography
+        variant="h3"
+      >
+        Books you read(ing)
+      </Typography>
 
-      <Box fontFamily="fontFamily">
-        Your reading list
-      </Box>
+      <BookList bookList={bookList} />
 
     </Layout>
   )
 }
 
 BooksPage.getInitialProps = async () => {
-  const books: BookDetails[] = await getBooks()
+  const bookList: BookDetails[] = await getBooks()
 
-  return { books }
+  return { bookList }
 }
 
 export default BooksPage

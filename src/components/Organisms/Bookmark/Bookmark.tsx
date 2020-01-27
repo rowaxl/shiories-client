@@ -42,7 +42,7 @@ const Bookmark: FunctionComponent<{ detail: BookmarkDetails }> = ({ detail }) =>
           id={`article_wroten_at_${id}`}
           className={customStyles().wrotenAtDiv}
         >
-          {new Date(wrotenAt).toLocaleString()}
+          {new Date(wrotenAt).toLocaleString('en-US')}
         </div>
       </GridItem>
 
