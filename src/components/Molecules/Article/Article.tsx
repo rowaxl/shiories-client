@@ -19,7 +19,7 @@ const Article: FunctionComponent<Props> = ({ children }) => {
   return (
     <GridItem className={customStyles().articleGridItem} {...{
       xs: 12,
-      sm: 12,
+      sm: 6,
       md: 6
     }}>
       <Paper elevation={3} className={customStyles().articlePaper}>

@@ -71,6 +71,22 @@ export default makeStyles(
     inputArticleMemo: {
       minWidth: '200px',
       width: '25vw'
+    },
+    bookCardContainer: {
+      width: '100%',
+      border: 'none !important',
+      display: 'flex',
+    },
+    bookCardDetail: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    bookThumbnail: {
+      minWidth: '100px',
+      minHeight: '150px',
+      height: '100%',
+      backgroundSize: 'contain !important',
+      backgroundPosition: 'center !important'
     }
   })
 )

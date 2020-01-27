@@ -9,6 +9,7 @@ export interface BookDetails {
   description?: string
   memo?: string
   created: number
+  [key:string]: string | number | undefined
 }
 
 export interface BookmarkDetails {
