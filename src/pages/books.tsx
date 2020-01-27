@@ -11,9 +11,7 @@ import Layout from 'components/Templates/Layout'
 import BookList from 'components/Organisms/Books/BookList'
 
 // MUI components
-import {
-  Box
-} from '@material-ui/core'
+import Typography from '@material-ui/core/Typography'
 
 // API
 import {
@@ -32,12 +30,12 @@ const BooksPage: NextPage<Props> = ({
     <Layout
       title="The Shiories (books)"
     >
-      <h1>Books</h1>
-      <Box fontFamily='fontFamily'>
-        Book list
-      </Box>
+      <Typography
+        variant="h3"
+      >
+        Books you read(ing)
+      </Typography>
 
-    
       <BookList bookList={bookList} />
 
     </Layout>

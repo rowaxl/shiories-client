@@ -16,6 +16,7 @@ import Modal from 'components/Molecules/Modal/SpringModal'
 import Fab from '@material-ui/core/Fab'
 import BookmarkIcon from '@material-ui/icons/Bookmark'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import Typography from '@material-ui/core/Typography'
 
 // opned state for modal
 import isOpen from 'utils/isOpen'
@@ -62,7 +63,11 @@ const IndexPage: NextPage<Props> = ({ bookmarks }) => {
     <Layout
       title="The Shiories (bookmarks)"
     >
-      <h1>Bookmarks</h1>
+      <Typography
+        variant="h3"
+      >
+        Bookmarks
+      </Typography>
 
       <BookmarkList bookmarks={currentArticles} />
 
