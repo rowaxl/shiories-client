@@ -2,9 +2,9 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 
 export default makeStyles(
   (theme: Theme) => createStyles({
-    articleGridItem: {},
     articlePaper: {
-      padding: theme.spacing(2)
+      padding: theme.spacing(2),
+      maxHeight: '300px'
     },
     articleTitle: {
       ...theme.typography.button,
@@ -71,6 +71,39 @@ export default makeStyles(
     inputArticleMemo: {
       minWidth: '200px',
       width: '25vw'
+    },
+    bookCardContainer: {
+      width: '100%',
+      border: 'none !important',
+      display: 'flex',
+      minHeight: '220px',
+      maxHeight: '220px'
+    },
+    bookCardHeader: {
+      padding: '0 !important',
+    },
+    bookCardDetail: {
+      display: 'flex',
+      flexDirection: 'column',
+      overflowY: 'scroll',
+      width: '100%',
+      '& > .MuiCardContent-root': {
+        paddingTop: '0 !important',
+        paddingRight: '0 !important',
+        paddingBottom: '0 !important'
+      }
+    },
+    bookThumbnail: {
+      minWidth: '100px',
+      minHeight: '150px',
+      height: '100%',
+      backgroundSize: 'contain !important',
+      backgroundPosition: 'center !important'
+    },
+    bookDetail: {
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap'
     }
   })
 )

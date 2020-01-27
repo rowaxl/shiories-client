@@ -1,9 +1,8 @@
 import React, {
   useState,
-  lazy,
-  Suspense
 } from 'react'
 import { NextPage } from 'next'
+import dynamic from 'next/dynamic'
 
 // interface
 import { BookmarkDetails } from 'interfaces'
@@ -17,6 +16,7 @@ import Modal from 'components/Molecules/Modal/SpringModal'
 import Fab from '@material-ui/core/Fab'
 import BookmarkIcon from '@material-ui/icons/Bookmark'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import Typography from '@material-ui/core/Typography'
 
 // opned state for modal
 import isOpen from 'utils/isOpen'
@@ -34,7 +34,10 @@ type Props = {
   bookmarks: BookmarkDetails[]
 }
 
-const BookmarkList = lazy(() => import('components/Organisms/Bookmark/BookmarkList'))
+const BookmarkList = dynamic(
+  () => import('components/Organisms/Bookmark/BookmarkList'),
+  { loading: () => <CircularProgress /> }
+)
 
 const IndexPage: NextPage<Props> = ({ bookmarks }) => {
 
@@ -60,11 +63,13 @@ const IndexPage: NextPage<Props> = ({ bookmarks }) => {
     <Layout
       title="The Shiories (bookmarks)"
     >
-      <h1>Bookmarks</h1>
+      <Typography
+        variant="h3"
+      >
+        Bookmarks
+      </Typography>
 
-      <Suspense fallback={ <CircularProgress /> }>
-        <BookmarkList bookmarks={currentArticles} />
-      </Suspense>
+      <BookmarkList bookmarks={currentArticles} />
 
       <div className={customStyle().floatingActionButton}>
         <Fab
