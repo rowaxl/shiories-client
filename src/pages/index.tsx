@@ -1,9 +1,8 @@
 import React, {
   useState,
-  lazy,
-  Suspense
 } from 'react'
 import { NextPage } from 'next'
+import dynamic from 'next/dynamic'
 
 // interface
 import { BookmarkDetails } from 'interfaces'
@@ -34,7 +33,10 @@ type Props = {
   bookmarks: BookmarkDetails[]
 }
 
-const BookmarkList = lazy(() => import('components/Organisms/Bookmark/BookmarkList'))
+const BookmarkList = dynamic(
+  () => import('components/Organisms/Bookmark/BookmarkList'),
+  { loading: () => <CircularProgress /> }
+)
 
 const IndexPage: NextPage<Props> = ({ bookmarks }) => {
 
@@ -62,9 +64,7 @@ const IndexPage: NextPage<Props> = ({ bookmarks }) => {
     >
       <h1>Bookmarks</h1>
 
-      <Suspense fallback={ <CircularProgress /> }>
-        <BookmarkList bookmarks={currentArticles} />
-      </Suspense>
+      <BookmarkList bookmarks={currentArticles} />
 
       <div className={customStyle().floatingActionButton}>
         <Fab
