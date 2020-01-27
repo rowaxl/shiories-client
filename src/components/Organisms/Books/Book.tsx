@@ -35,6 +35,7 @@ const Book: FunctionComponent<{ detail: BookDetails }> = ({ detail }) => {
         >
           <Typography
             id={`book_${key}_${id}`}
+            className={customStyles().bookDetail}
             variant="body2"
             color="textSecondary"
             component="p"
@@ -73,7 +74,7 @@ const Book: FunctionComponent<{ detail: BookDetails }> = ({ detail }) => {
           <CardContent>
             <CardHeader
               id={`book_title_${id}`}
-              className={customStyles().articleTitle}
+              className={customStyles().bookCardHeader}
               title={title}
               action={
                 <IconButton aria-label="settings">

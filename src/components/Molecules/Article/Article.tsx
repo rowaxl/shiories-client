@@ -17,12 +17,15 @@ const Article: FunctionComponent<Props> = ({ children }) => {
     // TODO: highlight article
   // }
   return (
-    <GridItem className={customStyles().articleGridItem} {...{
+    <GridItem {...{
       xs: 12,
       sm: 6,
       md: 6
     }}>
-      <Paper elevation={3} className={customStyles().articlePaper}>
+      <Paper
+        elevation={3}
+        className={customStyles().articlePaper}
+      >
         <GridContainer>
           {children}
         </GridContainer>
