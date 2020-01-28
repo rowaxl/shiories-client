@@ -18,7 +18,7 @@ import Typography from '@material-ui/core/Typography'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 
 const Book: FunctionComponent<{ detail: BookDetails }> = ({ detail }) => {
-  const { id, title } = detail
+  const { bookID, title } = detail
 
   const renderRestDetail = (details: BookDetails) => {
     return Object.keys(details).map((key) => {
@@ -31,10 +31,10 @@ const Book: FunctionComponent<{ detail: BookDetails }> = ({ detail }) => {
 
       return (
         <GridItem
-          key={`book_${key}_${id}`}
+          key={`book_${key}_${bookID}`}
         >
           <Typography
-            id={`book_${key}_${id}`}
+            id={`book_${key}_${bookID}`}
             className={customStyles().bookDetail}
             variant="body2"
             color="textSecondary"
@@ -73,7 +73,7 @@ const Book: FunctionComponent<{ detail: BookDetails }> = ({ detail }) => {
         >
           <CardContent>
             <CardHeader
-              id={`book_title_${id}`}
+              id={`book_title_${bookID}`}
               className={customStyles().bookCardHeader}
               title={title}
               action={
