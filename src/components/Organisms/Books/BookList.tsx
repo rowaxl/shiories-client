@@ -15,13 +15,13 @@ type Props = {
   bookList: BookDetails[]
 }
 
-const BookmarkList: FunctionComponent<Props> = ({ bookList }) => {
+const BookList: FunctionComponent<Props> = ({ bookList }) => {
   const [currentItems, setCurrentItems] = useState(bookList);
 
   useEffect(() => setCurrentItems(bookList), [bookList.length])
 
-  const renderCurrentItems = () => currentItems.map(book => 
-    <Book key={book.id} detail={book} />
+  const renderCurrentItems = () => currentItems.map(book =>
+    <Book key={book.bookID} detail={book} />
   )
 
   return (
@@ -29,4 +29,4 @@ const BookmarkList: FunctionComponent<Props> = ({ bookList }) => {
   )
 }
 
-export default BookmarkList
+export default BookList

@@ -1,5 +1,5 @@
 export interface BookDetails {
-  id: string
+  bookID: string
   ISBN10?: string
   ISBN13?: string
   title: string

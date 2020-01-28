@@ -1,6 +1,4 @@
-import React, {
-  // useState
-} from 'react'
+import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 
 // interfaces
@@ -12,20 +10,29 @@ import BookList from 'components/Organisms/Books/BookList'
 
 // MUI components
 import Typography from '@material-ui/core/Typography'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 // API
-import {
-  getBooks,
-  // postBook
-} from './api/books'
+import { getAllBooks } from 'models/books'
 
-type Props = {
-  bookList: BookDetails[]
-}
+const BooksPage: NextPage = () => {
+  const [bookList, setBookList] = useState<BookDetails[]>()
 
-const BooksPage: NextPage<Props> = ({
-  bookList
-}) => {
+  useEffect(() => {
+    const update = async () => {
+      const result = await getAllBooks(window)
+      setBookList(result)
+    }
+
+    update()
+  }, [])
+
+  const renderBooklist = () => {
+    if (!bookList) return <CircularProgress />
+
+    return <BookList bookList={bookList} />
+  }
+
   return (
     <Layout
       title="The Shiories (books)"
@@ -33,19 +40,13 @@ const BooksPage: NextPage<Props> = ({
       <Typography
         variant="h3"
       >
-        Books you read(ing)
+        Reading List
       </Typography>
 
-      <BookList bookList={bookList} />
+      {renderBooklist()}
 
     </Layout>
   )
-}
-
-BooksPage.getInitialProps = async () => {
-  const bookList: BookDetails[] = await getBooks()
-
-  return { bookList }
 }
 
 export default BooksPage
