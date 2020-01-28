@@ -15,9 +15,9 @@ const dummy1 = {
   "ISBN13": "978-1603862134",
   "title": "The O. Henry Short Story Collection",
   "publishedDate": "2015-02-01",
-  "author": "author",
+  "author": "O. Henry",
   "thumbnail": "https://via.placeholder.com/150x200.png/",
-  "description": "descriptionsdescriptionsdescriptionsdescriptionsdescriptionsdescriptions",
+  "description": "Over half a century since The Spy Who came in from the Cold made John le Carré a worldwide, bestselling sensation, David Cornwell, the man behind the pseudonym, remains an enigma. He has consistently quarried his life for his writing, and his novels seem to offer tantalizing glimpses of their author - but in the narrative of his life fact and fiction have become intertwined, and little is really known of one of the world's most successful writers. In Cornwell's lonely childhood Adam Sisman uncovers the origins of the themes of love and abandonment which have dominated le Carré's fiction: the departure of his mother when he was five, followed by 'sixteen hugless years'",
   "memo": "memo",
   "created": 9999999
 }

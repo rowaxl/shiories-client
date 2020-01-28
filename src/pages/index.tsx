@@ -1,5 +1,6 @@
 import React, {
   useState,
+  useEffect
 } from 'react'
 import { NextPage } from 'next'
 import dynamic from 'next/dynamic'
@@ -21,27 +22,28 @@ import Typography from '@material-ui/core/Typography'
 // opned state for modal
 import isOpen from 'utils/isOpen'
 
-// API
-import {
-  getBookmarks,
-  postBookmark
-} from 'pages/api/bookmarks'
-
 // styles
 import customStyle from 'styles/customStyles'
 
-type Props = {
-  bookmarks: BookmarkDetails[]
-}
+// models
+import { setBookmark, getAllBookmarks } from 'models/bookmarks'
 
 const BookmarkList = dynamic(
   () => import('components/Organisms/Bookmark/BookmarkList'),
   { loading: () => <CircularProgress /> }
 )
 
-const IndexPage: NextPage<Props> = ({ bookmarks }) => {
+const IndexPage: NextPage = () => {
+  const [currentArticles, setArticles] = useState<BookmarkDetails[]>([])
 
-  const [currentArticles, setArticles] = useState(bookmarks)
+  useEffect(() => {
+    const update = async () => {
+      const result = await getAllBookmarks(window)
+      setArticles(result)
+    }
+
+    update()
+  }, [])
 
   const {
     isOpened,
@@ -50,11 +52,11 @@ const IndexPage: NextPage<Props> = ({ bookmarks }) => {
   } = isOpen()
 
   const onSubmitBookmark = async (newBookmark: BookmarkDetails) => {
-    await postBookmark(newBookmark)
+    await setBookmark(window, newBookmark)
 
     close()
 
-    const renewed = await getBookmarks()
+    const renewed = await getAllBookmarks(window)
 
     setArticles(renewed)
   }
@@ -92,12 +94,6 @@ const IndexPage: NextPage<Props> = ({ bookmarks }) => {
 
     </Layout>
   );
-}
-
-IndexPage.getInitialProps = async () => {
-  const bookmarks: BookmarkDetails[] = await getBookmarks()
-
-  return { bookmarks }
 }
 
 export default IndexPage
