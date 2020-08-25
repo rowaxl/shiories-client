@@ -24,11 +24,6 @@ const Layout: FunctionComponent<Props> = ({ children, title }) => (
     </header>
 
     {children}
-
-    <footer>
-      <hr />
-      <span>(Footer)</span>
-    </footer>
   </div>
 )
 

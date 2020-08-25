@@ -1,6 +1,8 @@
 # The Shiories
 
 ## Overview
+![](overview.png)
+
 The Shiories is a web application for store your impression and details of what you read.
 You can also share and export it in the below formats.
 - CSV
